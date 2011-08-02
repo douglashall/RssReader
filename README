@@ -1,0 +1,1 @@
+Rename grails-app/conf/DataSource_sample.groovy to grails-app/conf/DataSource.groovy and edit it to include database configuration.
