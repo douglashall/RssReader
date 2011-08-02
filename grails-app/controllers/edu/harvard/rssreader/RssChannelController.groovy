@@ -5,10 +5,13 @@ import grails.util.Environment
 import groovyx.net.http.ContentType
 import groovyx.net.http.HTTPBuilder
 
+import org.codehaus.groovy.grails.commons.ConfigurationHolder
 import org.codehaus.groovy.grails.web.json.*
 
 class RssChannelController {
 
+	def config = ConfigurationHolder.config
+	
     def list = {
 		def readerId = RssReaderUtils.parseReaderIdFromIsitesParams(params)
 		def readerTopic = RssReaderTopic.get(readerId)
@@ -64,7 +67,7 @@ class RssChannelController {
 		def xmlFeed
 		try {
 			def http = new HTTPBuilder(source)
-			if (Environment.current != Environment.DEVELOPMENT) http.setProxy('10.34.5.254', 8080, 'http')
+			if (Environment.current != Environment.DEVELOPMENT) http.setProxy(config.http.proxy.host, config.http.proxy.port as Integer, 'http')
 			xmlFeed = http.get(contentType: ContentType.XML)
 		} catch (Exception e) {
 			e.printStackTrace()
