@@ -12,13 +12,9 @@ class IsitesPermissionUtilsTests extends GrailsUnitTestCase {
     }
 
     void testHasAdminPermission() {
-		def permissions = ""
-		assert !IsitesPermissionUtils.hasAdminPermission(permissions)
-		permissions = "7,8,9";
-		assert !IsitesPermissionUtils.hasAdminPermission(permissions)
-		permissions = "15"
-		assert IsitesPermissionUtils.hasAdminPermission(permissions)
-		permissions = "7,8,9,15,17,19"
-		assert IsitesPermissionUtils.hasAdminPermission(permissions)
+		assert !IsitesPermissionUtils.hasAdminPermission("")
+		assert !IsitesPermissionUtils.hasAdminPermission("7,8,9")
+		assert IsitesPermissionUtils.hasAdminPermission("15")
+		assert IsitesPermissionUtils.hasAdminPermission("7,8,9,15,17,19")
     }
 }
