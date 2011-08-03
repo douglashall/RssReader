@@ -13,7 +13,6 @@ class RssReaderUtils {
 				try {
 					id = Long.parseLong(items[1]);
 				} catch (NumberFormatException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
