@@ -13,19 +13,23 @@ grails.project.dependency.resolution = {
         grailsPlugins()
         grailsHome()
         grailsCentral()
-
+		mavenLocal()
+		
         // uncomment the below to enable remote dependency resolution
         // from public Maven repositories
-        //mavenLocal()
         //mavenCentral()
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+		mavenRepo "http://artifactory.icommons.harvard.edu/artifactory/libs-release/"
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        // runtime 'mysql:mysql-connector-java:5.1.13'
+		compile('org.codehaus.groovy.modules.http-builder:http-builder:0.5.1') {
+			excludes "xml-apis", "xercesImpl"
+		}
+        runtime('com.oracle:ojdbc6:11.2.0.2')
     }
 }
