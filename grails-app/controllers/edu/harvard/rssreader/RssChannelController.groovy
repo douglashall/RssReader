@@ -62,7 +62,7 @@ class RssChannelController {
 	
 	def create = {
 		def readerId = RssReaderUtils.parseReaderIdFromIsitesParams(params)
-		def source = params.source
+		def source = params.source.trim()
 		
 		def xmlFeed
 		try {
@@ -80,9 +80,12 @@ class RssChannelController {
 		}
 		
 		def rssChannel = new RssChannel()
-		rssChannel.title = xmlFeed.channel.title.text()
-		rssChannel.description = xmlFeed.channel.description.text()
-		rssChannel.link = xmlFeed.channel.link.text()
+		def title = xmlFeed.channel.title.text()
+		def description = xmlFeed.channel.description.text()
+		def link = xmlFeed.channel.link.text()
+		rssChannel.title = title ? title : "Untitled"
+		rssChannel.description = description ? description : rssChannel.title
+		rssChannel.link = link ? link : source
 		rssChannel.source = source
 		rssChannel.save()
 		
