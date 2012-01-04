@@ -67,7 +67,7 @@ class RssChannelController {
 		def xmlFeed
 		try {
 			def http = new HTTPBuilder(source)
-			if (Environment.current != Environment.DEVELOPMENT) http.setProxy(config.http.proxy.host, config.http.proxy.port, 'http')
+			if (Environment.current == Environment.TEST) http.setProxy(config.http.proxy.host, config.http.proxy.port, 'http')
 			xmlFeed = http.get(contentType: ContentType.XML)
 		} catch (Exception e) {
 			e.printStackTrace()
