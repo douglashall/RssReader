@@ -52,9 +52,6 @@ grails.spring.bean.packages = []
 // request parameters to mask when logging exceptions
 grails.exceptionresolver.params.exclude = ['password']
 
-http.proxy.host = "10.34.5.254"
-http.proxy.port = 8080
-
 // set per-environment serverURL stem for creating absolute links
 environments {
     production {
@@ -65,10 +62,9 @@ environments {
     }
     test {
         grails.serverURL = "http://localhost:8080/${appName}"
+		http.proxy.host = "10.34.5.254"
+		http.proxy.port = 8080
     }
-	qa {
-		grails.serverURL = "http://www.changeme.com"
-	}
 
 }
 
