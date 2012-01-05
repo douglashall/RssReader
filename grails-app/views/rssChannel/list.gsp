@@ -42,7 +42,8 @@
 				font-size: 19pt;
 				line-height: 29px;
 				padding: 20px 0px 20px 0px;
-				display:inline-block;/*
+				display:inline-block;
+				height: auto;/*
 				width: 100%;
 				border: solid 1px #d2d2d2;*/
 			}
