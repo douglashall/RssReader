@@ -42,10 +42,12 @@
 				font-size: 19pt;
 				line-height: 29px;
 				padding: 20px 0px 20px 0px;
-				display:inline-block;
-				height: auto;/*
+				display:inline-block;/*
 				width: 100%;
 				border: solid 1px #d2d2d2;*/
+			}
+			.gf-title {
+				height: auto;
 			}
 			.gf-title a{
 				color: #8e0f22;
